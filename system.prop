@@ -11,8 +11,7 @@ ro.build.target_operator=GLOBAL
 ro.build.target_country=COM
 persist.radio.msgtunnel.start=false
 keyguard.no_require_sim=true
-# VoLTE test path (EE needs IMS post-3G sunset). Forces framework IMS avail;
-# still needs a working ImsService bind — CS DIAL works once voice_capable.
-# (prop names must be ≤31 bytes — no volte_enable_override)
-persist.dbg.volte_avail_ovr=1
-persist.radio.calls.on.ims=true
+# CS voice first: do NOT force IMS. Without a real ImsService, calls.on.ims /
+# volte_avail_ovr leave MO stuck in DIALING (UL works, no DL / no ACTIVE UI)
+# and MT pages CSFB with no IncomingCall UI. VoLTE needs a later ImsService.
+persist.radio.calls.on.ims=false
