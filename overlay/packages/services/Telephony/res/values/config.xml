@@ -24,7 +24,8 @@
     <!-- Show enabled lte option for lte device -->
     <bool name="config_enabled_lte" translatable="false">true</bool>
 
-    <!-- No ImsService yet — keep VoLTE off so CS/CSFB owns call state. -->
+    <!-- Phase 1: ImsService packaged, but VoLTE/VT/WFC UI gated until IMS_REG.
+         VoWiFi stays killed (VOWIFI-KILL.md) until VoLTE MO/MT on LTE is green. -->
     <bool name="config_device_volte_available">false</bool>
     <bool name="config_device_vt_available">false</bool>
     <bool name="config_device_wfc_ims_available">false</bool>

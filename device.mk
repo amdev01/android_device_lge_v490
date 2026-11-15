@@ -35,10 +35,10 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += SimRecover
 
-# QTI IMS blobs — DO NOT inherit until CS MO reaches ACTIVE + MT rings.
-# Packaging ims.apk/daemons caused stuck DIALING (QCRIL jbims/IMS path) even
-# with calls.on.ims=false. Re-enable: inherit v4xx-ims.mk + ims_daemon=1.
-# $(call inherit-product-if-exists, vendor/lge/v4xx-common/v4xx-ims.mk)
+# QTI IMS Phase 1 (2026-11-15): CS MO ACTIVE + caller UI green → ship APK/daemons.
+# Keep framework VoLTE/WFC overlays OFF and jbims=0 / calls.on.ims=false until
+# ImsService bind + IMS_REG (see context/lineage-14.1/IMS-BRINGUP.md).
+$(call inherit-product-if-exists, vendor/lge/v4xx-common/v4xx-ims.mk)
 
 # common v4xx
 $(call inherit-product, device/lge/v4xx-common/v4xx.mk)
