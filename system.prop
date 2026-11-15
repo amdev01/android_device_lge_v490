@@ -15,5 +15,9 @@ keyguard.no_require_sim=true
 # volte_avail_ovr leave MO stuck in DIALING (UL works, no DL / no ACTIVE UI)
 # and MT pages CSFB with no IncomingCall UI. VoLTE needs a later ImsService.
 persist.radio.calls.on.ims=false
-# Start QTI IMS daemons (init.v4xx-ims.rc); keep volte overlay false until bind.
-persist.radio.ims_daemon=1
+# Keep QTI IMS daemons/APK off until CS GET_CURRENT_CALLS reaches ACTIVE.
+# HITL 2026-11-15: with ims APK/daemons present, MO stayed DIALING (BT DL OK,
+# HANGUP GENERIC_FAILURE) — QCRIL jbims/IMS call path vs CS atel list.
+persist.radio.ims_daemon=0
+persist.radio.jbims=0
+persist.radio.is_voip_enabled=false

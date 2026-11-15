@@ -35,8 +35,10 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += SimRecover
 
-# QTI IMS blobs (VoLTE gated off in overlay until ImsService binds)
-$(call inherit-product-if-exists, vendor/lge/v4xx-common/v4xx-ims.mk)
+# QTI IMS blobs — DO NOT inherit until CS MO reaches ACTIVE + MT rings.
+# Packaging ims.apk/daemons caused stuck DIALING (QCRIL jbims/IMS path) even
+# with calls.on.ims=false. Re-enable: inherit v4xx-ims.mk + ims_daemon=1.
+# $(call inherit-product-if-exists, vendor/lge/v4xx-common/v4xx-ims.mk)
 
 # common v4xx
 $(call inherit-product, device/lge/v4xx-common/v4xx.mk)
