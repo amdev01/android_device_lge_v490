@@ -1,5 +1,6 @@
-# Thermal daemon
+# Thermal daemon + per-SKU stock sensors.qcom (V49010c)
 bin/thermal-engine
+bin/sensors.qcom
 vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 
