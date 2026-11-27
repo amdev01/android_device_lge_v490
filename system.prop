@@ -1,5 +1,9 @@
+# LTE: allow sensors/thermal QMI (wifi Phase0B gate must stay off here)
+ro.v4xx.wifi_qmux_gate=0
+
 # Radio
 persist.data.netmgrd.qos.enable=false
+
 persist.radio.add_power_save=1
 persist.radio.apm_sim_not_pwdn=1
 rild.libpath=/vendor/lib/libril-qc-qmi-1.so
